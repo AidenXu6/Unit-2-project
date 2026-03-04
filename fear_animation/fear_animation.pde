@@ -1,7 +1,12 @@
-//Aiden Xu
+//aiden xu
 
-size(600,600);
+void setup(){
+  size(600,600);
+}
 
+
+void draw(){
+  
 //leg outline
 line(0,300,250,325);
 line(0,0,300,150);
