@@ -1,7 +1,7 @@
 //Aiden Xu
 
 size(600,600);
-
+noStroke();
 //leg outline
 line(0,300,250,325);
 line(0,0,300,150);

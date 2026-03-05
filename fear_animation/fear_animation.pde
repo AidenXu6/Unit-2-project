@@ -1,12 +1,46 @@
 //aiden xu
 
 void setup(){
-  size(600,600);
+  size(1000,1000);
+ 
 }
 
 
 void draw(){
-  
+  scale(1.2);
+  myleg(0,0);
+  scale(1);
+   kickingleg(200,300);
+}
+
+void kickingleg(int x,int y){
+  pushMatrix();
+  translate(x,y);
+//leg
+stroke(0);
+fill(#F7B119);
+rect(10,0,75,175,5);
+
+//foot (cleat)
+fill(0);
+rect(0,175,175,50,30);
+fill(255);
+triangle(15,225,30,240,45,225);
+triangle(60,225,75,240,90,225);
+triangle(105,225,120,240,135,225);
+
+//shoelaces
+stroke(255);
+line(110,175,110,190);
+line(125,175,125,190);
+line(140,175,140,190);
+popMatrix();
+}
+
+void myleg(int x, int y){
+  pushMatrix();
+  translate(x,y);
+  noStroke();
 //leg outline
 line(0,300,250,325);
 line(0,0,300,150);
@@ -63,3 +97,6 @@ fill(#F55B5B);
 quad(0,25,0,75,340,225,340,200);
 fill(200);
 ellipse(340,225,50,75);
+popMatrix();
+}
+  
