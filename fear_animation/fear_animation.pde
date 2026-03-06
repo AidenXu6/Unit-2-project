@@ -1,21 +1,27 @@
 //aiden xu
-
+int kickingAngle;
 void setup(){
-  size(1000,1000);
  
+  size(775,775,P2D);
+ kickingAngle=0;
 }
 
 
 void draw(){
-  scale(1.2);
+  background(#12CAFF);
+  scale(1.3);
   myleg(0,0);
   scale(1);
-   kickingleg(200,300);
+   kickingleg(-50,400,kickingAngle);
+   kickingAngle=kickingAngle-1;
+   if (kickingAngle<1)
+   kickingAngle=90;
 }
 
-void kickingleg(int x,int y){
+void kickingleg(int x,int y,int angle){
   pushMatrix();
   translate(x,y);
+  rotate(radians(angle));
 //leg
 stroke(0);
 fill(#F7B119);
