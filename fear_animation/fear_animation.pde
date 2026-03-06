@@ -14,8 +14,8 @@ void draw(){
   scale(1);
    kickingleg(-50,400,kickingAngle);
    kickingAngle=kickingAngle-1;
-   if (kickingAngle<1)
-   kickingAngle=90;
+   if (kickingAngle>90)
+   kickingAngle=0;
 }
 
 void kickingleg(int x,int y,int angle){
@@ -105,4 +105,5 @@ fill(200);
 ellipse(340,225,50,75);
 popMatrix();
 }
+  
   
