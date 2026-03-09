@@ -1,9 +1,11 @@
 //aiden xu
-int kickingAngle;
+int kickingAngle; 
+int vkickingAngle;
 void setup(){
  
   size(775,775,P2D);
  kickingAngle=0;
+ vkickingAngle=-1;
 }
 
 
@@ -13,9 +15,18 @@ void draw(){
   myleg(0,0);
   scale(1);
    kickingleg(-50,400,kickingAngle);
-   kickingAngle=kickingAngle-1;
-   if (kickingAngle>90)
-   kickingAngle=0;
+   kickingAngle=kickingAngle+vkickingAngle;
+   if (kickingAngle<-40)
+   vkickingAngle=1;
+  if(kickingAngle>10)
+  vkickingAngle=-1;
+  if(kickingAngle<=-40)
+  brokenleg(0,0);
+  if(kickingAngle<-40)
+  delay(2000);
+  if(kickingAngle<=-40)
+text("OUCH!",350,100);
+textSize(40);
 }
 
 void kickingleg(int x,int y,int angle){
@@ -69,7 +80,7 @@ fill(255);
 quad(0,100,0,200,200,275,250,200);
 ellipse(250,250,125,100);
 
-//patellar ligament
+//bottom bone
 quad(250,300,325,300,500,600,425,600);
 
 //acl
@@ -105,5 +116,67 @@ fill(200);
 ellipse(340,225,50,75);
 popMatrix();
 }
+  void brokenleg (int x, int y){
+  noStroke();
+  pushMatrix();
+  translate(x,y);
   
+//leg outline
+line(0,300,250,325);
+line(0,0,300,150);
+line(300,150,375,200);
+line(250,325,350,600);
+line(375,200,550,600);
+
+fill(#E0AE71);
+beginShape();
+vertex(0,0);
+vertex(300,150);
+vertex(375,200);
+vertex(550,600);
+vertex(350,600);
+vertex(0,300);
+endShape();
+
+//femur
+fill(255);
+quad(0,100,0,200,150,275,175,200);
+ellipse(250,250,125,100);
+
+//bottom bone
+quad(250,359,325,300,500,600,425,600);
+
+//acl
+line(325,300,300,275);
+line(300,300,275,295);
+
+fill(200);
+beginShape();
+vertex(300,275);  
+vertex(325,300);  
+vertex(300,300);  
+vertex(275,295);  
+endShape();
+
+//MCL
+fill(255);
+quad(400,600,375,600,200,400,250,375);
+
+//hamstring
+fill(#F55B5B);
+quad(0,220,0,250,125,325,250,300);
+quad(100,355,250,325,240,375,210,375);
+
+
+//patellar ligament
+fill(200);
+quad(340,200,340,250,400,385,425,427);
+
+//quads
+fill(#F55B5B);
+quad(0,25,0,75,340,225,340,200);
+fill(200);
+ellipse(340,225,50,75);
+  popMatrix();
+  }
   
