@@ -11,9 +11,9 @@ void setup(){
 
 void draw(){
   background(#12CAFF);
+  fill(0,255,0);
+  rect(0,500,1000,1000);
   scale(1.3);
-  myleg(0,0);
-  scale(1);
    kickingleg(-50,400,kickingAngle);
    kickingAngle=kickingAngle+vkickingAngle;
    if (kickingAngle<-40)
@@ -24,9 +24,16 @@ void draw(){
   brokenleg(0,0);
   if(kickingAngle<-40)
   delay(2000);
-  if(kickingAngle<=-40)
-text("OUCH!",350,100);
-textSize(40);
+  if(kickingAngle<=-40){
+  fill(255,0,0);
+ PFont myFont=createFont ("LuckiestGuy-Regular.ttf",100);
+ textFont(myFont);
+ textSize(100);
+ fill(255,0,0);
+ text("OUCH!", 300,100);}
+  myleg(0,0);
+    if(kickingAngle<=-40)
+  brokenleg(0,0);
 }
 
 void kickingleg(int x,int y,int angle){
