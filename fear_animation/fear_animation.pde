@@ -10,8 +10,8 @@ void setup(){
 
 
 void draw(){
-  background(#12CAFF);
-  fill(0,255,0);
+  background(#B2B4B4);
+  fill(#205A0E);
   rect(0,500,1000,1000);
   scale(1.3);
    kickingleg(-50,400,kickingAngle);
