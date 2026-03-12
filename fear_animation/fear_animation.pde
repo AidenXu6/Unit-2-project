@@ -1,8 +1,20 @@
-//aiden xu
+//Aiden Xu
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+AudioPlayer song;
+Minim minim;
+
 int kickingAngle; 
 int vkickingAngle;
+
 void setup(){
- 
+ minim=new Minim (this);
+ song=minim.loadFile("Volatile Reaction.mp3");
+  song.play();
   size(775,775,P2D);
  kickingAngle=0;
  vkickingAngle=-1;
